@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>StoreRetrive</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h2>Store and retrieve data from local storage.</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        var myObj, myJSON, text, obj;
+
+        //Storing data:
+        myObj = { "name":"John", "age":31,"today":new Date(), "city":"New York" };
+        myJSON = JSON.stringify(myObj);
+        localStorage.setItem("testJSON", myJSON);
+
+        //Retrieving data:
+        text = localStorage.getItem("testJSON");
+        obj = JSON.parse(text);
+        //modifying name
+        obj.name = "Razi";
+        //again modifying
+        obj["name"] = "murali";
+        document.getElementById("demo").innerHTML = obj["name"] + "<br>" + obj.age + "<br>" + obj.today + "<br/>" + obj.city + "<br/>";
+        //using for-in loop
+        for (x in myObj) {
+            document.getElementById("demo").innerHTML += myObj[x] + "<br>";
+        }
+    </script>
+
+</body>
+</html>

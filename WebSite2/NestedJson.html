@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        var myObj = {
+                      "name":"John",
+                      "age":30,
+                      "cars": {
+                                "car1":"Ford",
+                                "car2":"BMW",
+                                "car3":"Fiat"
+                              }
+                   }
+        document.getElementById("demo").innerHTML += myObj.cars.car2 + "<br>";
+        //or:
+        document.getElementById("demo").innerHTML += myObj.cars["car2"] + "<br/>";
+        //modifying the value
+        //myObj.cars.car2 = "Mercedes";
+
+        //deleting the value
+        delete myObj.cars.car2;
+
+        for (i in myObj.cars) {
+            document.getElementById("demo").innerHTML += myObj.cars[i] + "<br/>";
+        }
+    </script>
+</body>
+</html>
